@@ -159,21 +159,6 @@ e.Logger.Fatal(e.Start(":4242"))
 // time=2023-10-15T20:32:58.926+02:00 level=INFO msg="Success" env=production request.time=2023-10-15T20:32:58.626+02:00 request.method=GET request.path=/ request.route="" request.ip=127.0.0.1:63932 request.length=0 response.time=2023-10-15T20:32:58.926+02:00 response.latency=100ms response.status=200 response.length=7 id=229c7fc8-64f5-4467-bc4a-940700503b0d  http.error="map[code:500 internal:I'm angry internally message:I'm angry]" http.internal="I'm angry internally"
 ```
 
-### OTEL
-
-```go
-logger := slog.New(slog.NewTextHandler(os.Stdout, nil))
-
-config := slogecho.Config{
-	WithSpanID:  true,
-	WithTraceID: true,
-}
-
-e := echo.New()
-e.Use(slogecho.NewWithConfig(logger, config))
-e.Use(middleware.Recover())
-```
-
 ### Custom log levels
 
 ```go
