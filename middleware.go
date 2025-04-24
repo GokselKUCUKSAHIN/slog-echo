@@ -1,7 +1,6 @@
 package slogecho
 
 import (
-	"context"
 	"errors"
 	"log/slog"
 	"net/http"
@@ -10,16 +9,11 @@ import (
 
 	"github.com/labstack/echo/v4"
 	"github.com/samber/lo"
-	"go.opentelemetry.io/otel/trace"
 )
 
-const (
-	customAttributesCtxKey = "slog-echo.custom-attributes"
-)
+const customAttributesCtxKey = "slog-echo.custom-attributes"
 
 var (
-	TraceIDKey   = "trace_id"
-	SpanIDKey    = "span_id"
 	RequestIDKey = "id"
 
 	RequestBodyMaxSize  = 64 * 1024 // 64KB
@@ -192,9 +186,6 @@ func NewWithConfig(logger *slog.Logger, config Config) echo.MiddlewareFunc {
 				}
 			}
 
-			// otel
-			baseAttributes = append(baseAttributes, extractTraceSpanID(c.Request().Context(), config.WithTraceID, config.WithSpanID)...)
-
 			// request body
 			requestAttributes = append(requestAttributes, slog.Int("length", br.bytes))
 			if config.WithRequestBody {
@@ -322,30 +313,4 @@ func AddCustomAttributes(c echo.Context, attr slog.Attr) {
 	case []slog.Attr:
 		c.Set(customAttributesCtxKey, append(attrs, attr))
 	}
-}
-
-func extractTraceSpanID(ctx context.Context, withTraceID bool, withSpanID bool) []slog.Attr {
-	if !withTraceID && !withSpanID {
-		return []slog.Attr{}
-	}
-
-	span := trace.SpanFromContext(ctx)
-	if !span.IsRecording() {
-		return []slog.Attr{}
-	}
-
-	attrs := []slog.Attr{}
-	spanCtx := span.SpanContext()
-
-	if withTraceID && spanCtx.HasTraceID() {
-		traceID := trace.SpanFromContext(ctx).SpanContext().TraceID().String()
-		attrs = append(attrs, slog.String(TraceIDKey, traceID))
-	}
-
-	if withSpanID && spanCtx.HasSpanID() {
-		spanID := spanCtx.SpanID().String()
-		attrs = append(attrs, slog.String(SpanIDKey, spanID))
-	}
-
-	return attrs
 }

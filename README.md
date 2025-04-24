@@ -1,14 +1,14 @@
 
 # slog: Echo middleware
 
-[![tag](https://img.shields.io/github/tag/samber/slog-echo.svg)](https://github.com/samber/slog-echo/releases)
+[![tag](https://img.shields.io/github/tag/GokselKUCUKSAHIN/slog-echo.svg)](https://github.com/GokselKUCUKSAHIN/slog-echo/releases)
 ![Go Version](https://img.shields.io/badge/Go-%3E%3D%201.21-%23007d9c)
-[![GoDoc](https://godoc.org/github.com/samber/slog-echo?status.svg)](https://pkg.go.dev/github.com/samber/slog-echo)
-![Build Status](https://github.com/samber/slog-echo/actions/workflows/test.yml/badge.svg)
-[![Go report](https://goreportcard.com/badge/github.com/samber/slog-echo)](https://goreportcard.com/report/github.com/samber/slog-echo)
-[![Coverage](https://img.shields.io/codecov/c/github/samber/slog-echo)](https://codecov.io/gh/samber/slog-echo)
-[![Contributors](https://img.shields.io/github/contributors/samber/slog-echo)](https://github.com/samber/slog-echo/graphs/contributors)
-[![License](https://img.shields.io/github/license/samber/slog-echo)](./LICENSE)
+[![GoDoc](https://godoc.org/github.com/GokselKUCUKSAHIN/slog-echo?status.svg)](https://pkg.go.dev/github.com/GokselKUCUKSAHIN/slog-echo)
+![Build Status](https://github.com/GokselKUCUKSAHIN/slog-echo/actions/workflows/test.yml/badge.svg)
+[![Go report](https://goreportcard.com/badge/github.com/GokselKUCUKSAHIN/slog-echo)](https://goreportcard.com/report/github.com/GokselKUCUKSAHIN/slog-echo)
+[![Coverage](https://img.shields.io/codecov/c/github/GokselKUCUKSAHIN/slog-echo)](https://codecov.io/gh/GokselKUCUKSAHIN/slog-echo)
+[![Contributors](https://img.shields.io/github/contributors/GokselKUCUKSAHIN/slog-echo)](https://github.com/GokselKUCUKSAHIN/slog-echo/graphs/contributors)
+[![License](https://img.shields.io/github/license/GokselKUCUKSAHIN/slog-echo)](./LICENSE)
 
 [Echo](https://github.com/labstack/echo) middleware to log http requests using [slog](https://pkg.go.dev/log/slog).
 
@@ -37,7 +37,7 @@
 **HTTP middlewares:**
 
 - [slog-gin](https://github.com/samber/slog-gin): Gin middleware for `slog` logger
-- [slog-echo](https://github.com/samber/slog-echo): Echo middleware for `slog` logger
+- [slog-echo](https://github.com/GokselKUCUKSAHIN/slog-echo): Echo middleware for `slog` logger
 - [slog-fiber](https://github.com/samber/slog-fiber): Fiber middleware for `slog` logger
 - [slog-chi](https://github.com/samber/slog-chi): Chi middleware for `slog` logger
 - [slog-http](https://github.com/samber/slog-http): `net/http` middleware for `slog` logger
@@ -74,10 +74,7 @@
 
 ```sh
 # echo v4 (current)
-go get github.com/samber/slog-echo
-
-# echo v5 (alpha)
-go get github.com/samber/slog-echo@echo-v5
+go get github.com/GokselKUCUKSAHIN/slog-echo
 ```
 
 **Compatibility**: go >= 1.21
@@ -130,7 +127,7 @@ import (
 
 	"github.com/labstack/echo/v4"
 	"github.com/labstack/echo/v4/middleware"
-	slogecho "github.com/samber/slog-echo"
+	slogecho "github.com/GokselKUCUKSAHIN/slog-echo"
 	"log/slog"
 )
 
@@ -272,7 +269,7 @@ Available filters:
 import (
 	"github.com/labstack/echo/v4"
 	"github.com/labstack/echo/v4/middleware"
-	slogecho "github.com/samber/slog-echo"
+	slogecho "github.com/GokselKUCUKSAHIN/slog-echo"
 	slogformatter "github.com/samber/slog-formatter"
 	"log/slog"
 )
@@ -418,13 +415,13 @@ e.Logger.Fatal(e.Start(":4242"))
 ## 🤝 Contributing
 
 - Ping me on Twitter [@samuelberthe](https://twitter.com/samuelberthe) (DMs, mentions, whatever :))
-- Fork the [project](https://github.com/samber/slog-echo)
-- Fix [open issues](https://github.com/samber/slog-echo/issues) or request new features
+- Fork the [project](https://github.com/GokselKUCUKSAHIN/slog-echo)
+- Fix [open issues](https://github.com/GokselKUCUKSAHIN/slog-echo/issues) or request new features
 
 Don't hesitate ;)
 
 ```bash
-# Install some dev dependencies
+# Install some dev dependencies.
 make tools
 
 # Run tests
@@ -435,7 +432,7 @@ make watch-test
 
 ## 👤 Contributors
 
-![Contributors](https://contrib.rocks/image?repo=samber/slog-echo)
+![Contributors](https://contrib.rocks/image?repo=GokselKUCUKSAHIN/slog-echo)
 
 ## 💫 Show your support
 
